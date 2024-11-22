@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_gray">#696969</color>
+    <color name="light_gray">#D9D9D9</color>
+    <color name="yellow">#EEFD68</color>
+    <color name="background">#197321</color>
+    <color name="income_green">#1DB26A</color>
+    <color name="blue">#588DFF</color>
+    <color name="field_blue">#3070D9</color>
+    <color name="red">#EB383B</color>
+    <color name="momo_pink">#D82D8B</color>
+    <color name="schedule_pink">#F256DB</color>
+    <color name="purple">#64328C</color>
+</resources>
