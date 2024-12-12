@@ -88,7 +88,6 @@ public class RevenueActivity extends AppCompatActivity {
         xAxis.setGranularity(1f); // Khoảng cách giữa các giá trị
         xAxis.setGranularityEnabled(true);
         xAxis.setAxisLineWidth(2f);
-        yAxis.setTextSize(13f);
         xAxis.setDrawGridLines(false);
         xAxis.setTypeface(Typeface.DEFAULT_BOLD);// Tắt lưới
     }

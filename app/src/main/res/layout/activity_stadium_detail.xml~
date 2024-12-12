@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="25dp"
     android:background="@drawable/bg_popup"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:layout_gravity="center">
 
     <LinearLayout
@@ -29,17 +29,42 @@
 
         <!-- Hình ảnh sân -->
         <ImageView
-            android:id="@+id/img_stadium"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/camp_nou"
-            android:layout_marginBottom="16dp" />
+            android:src="@drawable/camp_nou" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="15dp">
+
+            <ImageButton
+                android:id="@+id/btn_takephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/outline_photo_camera_24"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/btn_choosephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_library_photo" />
+
+        </LinearLayout>
+
+        <!-- Thông tin người đặt -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nguyễn Văn B"
+            android:text="Camp Nou"
             android:textSize="18sp"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
@@ -47,21 +72,23 @@
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
+        <!-- Ngày bắt đầu -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:textSize="18sp"
-            android:text="24/11/2024"
+            android:text="11 vs 11"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
+        <!-- Ngày kết thúc -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="26/11/2024"
+            android:text="Barcelona"
             android:textSize="18sp"
             android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
@@ -73,18 +100,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="20:00 - 21:30"
+            android:text="180.000"
             android:textSize="18sp"
             android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp" />
 
     </LinearLayout>
 
-
-
-
+    <!-- Button hành động -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -133,6 +159,4 @@
             android:textColor="@android:color/white"
             android:layout_marginStart="4dp" />
     </LinearLayout>
-
-
 </LinearLayout>

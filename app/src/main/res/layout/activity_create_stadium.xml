@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="25dp"
     android:background="@drawable/bg_popup"
-    android:gravity="center_horizontal"
+    android:gravity="center"
+    android:id="@+id/main"
     android:layout_gravity="center">
 
     <LinearLayout
@@ -19,27 +20,50 @@
             android:id="@+id/tv_stadium_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Camp Nou"
+            android:text=""
             android:textStyle="bold"
             android:fontFamily="@font/baloo"
             android:textSize="25sp"
             android:textColor="@android:color/black"
-            android:gravity="center"
             android:layout_marginBottom="16dp" />
 
-        <!-- Hình ảnh sân -->
         <ImageView
-            android:id="@+id/img_stadium"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/camp_nou"
-            android:layout_marginBottom="16dp" />
+            android:background="@drawable/bg_textfield"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nguyễn Văn B"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="15dp">
+
+            <ImageButton
+                android:id="@+id/btn_takephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/outline_photo_camera_24"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/btn_choosephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_library_photo" />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên sân"
+            android:inputType="text"
             android:textSize="18sp"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
@@ -47,21 +71,25 @@
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
-        <TextView
+        <!-- Ngày bắt đầu -->
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
+            android:inputType="text"
             android:textSize="18sp"
-            android:text="24/11/2024"
+            android:hint="Loại sân"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
-        <TextView
+        <!-- Ngày kết thúc -->
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="26/11/2024"
+            android:hint="Vị trí"
+            android:inputType="text"
             android:textSize="18sp"
             android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
@@ -70,11 +98,12 @@
             android:layout_marginBottom="10dp" />
 
         <!-- Khung giờ -->
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="20:00 - 21:30"
+            android:hint="Phí đặt sân"
             android:textSize="18sp"
+            android:inputType="number"
             android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
@@ -82,16 +111,16 @@
 
     </LinearLayout>
 
+    <!-- Hình ảnh sân -->
 
-
-
+    <!-- Button hành động -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:weightSum="3"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:weightSum="3">
 
         <!-- Nút Xóa -->
         <Button
