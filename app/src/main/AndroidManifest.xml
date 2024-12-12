@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Admin_Stadium"
         tools:targetApi="31">
         <activity
+            android:name=".ChangeEndTime"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeStartTime"
+            android:exported="false" />
+        <activity
+            android:name=".PopupStadiumDetail"
+            android:exported="false" />
+        <activity
+            android:name=".PopupCreateStadium"
+            android:exported="false" />
+        <activity
             android:name=".CreateStadium"
             android:exported="false" />
         <activity

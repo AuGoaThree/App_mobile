@@ -7,32 +7,29 @@ import android.widget.Button;
 
 import androidx.fragment.app.DialogFragment;
 
-public class ScheduleDetailDialogFragment extends DialogFragment {
+public class ChangeStartTime extends DialogFragment {
 
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
         // Tạo View từ layout tùy chỉnh
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.activity_schedule_detail, null); // Đảm bảo layout này trỏ đúng tới file XML của bạn
+        View view = inflater.inflate(R.layout.activity_change_start_time, null); // Đảm bảo layout này trỏ đúng tới file XML của bạn
 
         // Các nút hành động trong popup
-        Button btnDelete = view.findViewById(R.id.btn_delete);
-        Button btnCancel = view.findViewById(R.id.btn_cancel);
-        Button btnSave = view.findViewById(R.id.btn_save);
 
-        // Xử lý sự kiện click cho các nút
-        btnDelete.setOnClickListener(v -> {
-            // Xử lý hành động Xóa
-            dismiss();
-        });
+        Button btnCancel = view.findViewById(R.id.btn_cancel);
 
         btnCancel.setOnClickListener(v -> {
             // Xử lý hành động Hủy
             dismiss();
         });
 
-        btnSave.setOnClickListener(v -> {
-            // Xử lý hành động Lưu
+        Button btnContinue = view.findViewById(R.id.btn_continue);
+        btnContinue.setOnClickListener(v -> {
+            // Hiển thị popup EndTime
+            ChangeEndTime changeEndTime = new ChangeEndTime();
+            changeEndTime.show(getParentFragmentManager(), "changeEndTime");
+            // Đóng popup StartTime hiện tại
             dismiss();
         });
 

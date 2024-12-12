@@ -1,7 +1,10 @@
 package com.example.admin_stadium;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -24,11 +27,23 @@ public class ScheduleActivity extends AppCompatActivity {
                 showPopup();
             }
         });
+
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScheduleActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     private void showPopup() {
         // Hiển thị DialogFragment
-        ScheduleDetailDialogFragment dialogFragment = new ScheduleDetailDialogFragment();
-        dialogFragment.show(getSupportFragmentManager(), "scheduleDetailDialog");
+       ScheduleDetailActivity dialogFragment = new ScheduleDetailActivity();
+        dialogFragment.show(getSupportFragmentManager(), "scheduleDetail");
     }
+
 }

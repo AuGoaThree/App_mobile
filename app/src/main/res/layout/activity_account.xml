@@ -26,7 +26,7 @@
             android:gravity="start"
             android:text="Đăng xuất"
             android:textSize="30sp"
-            android:textColor="#EB383B"/>
+            android:textColor="#140101"/>
 
         <Button
             android:id="@+id/btn_save"

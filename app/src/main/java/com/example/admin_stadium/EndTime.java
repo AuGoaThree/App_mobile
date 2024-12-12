@@ -1,24 +1,39 @@
 package com.example.admin_stadium;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.DialogFragment;
 
-public class EndTime extends AppCompatActivity {
+public class EndTime extends DialogFragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_end_time);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+    public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Tạo View từ layout tùy chỉnh
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.activity_end_time, null); // Đảm bảo layout này trỏ đúng tới file XML của bạn
+
+        // Các nút hành động trong popup
+
+        Button btnCancel = view.findViewById(R.id.btn_cancel);
+        Button btnSave = view.findViewById(R.id.btn_save);
+
+        btnCancel.setOnClickListener(v -> {
+            // Xử lý hành động Hủy
+            dismiss();
         });
+
+
+        btnSave.setOnClickListener(v -> {
+            // Xử lý hành động Lưu
+            dismiss();
+        });
+
+        // Tạo và trả về Dialog
+        return new android.app.AlertDialog.Builder(getActivity())
+                .setView(view)
+                .create();
     }
 }

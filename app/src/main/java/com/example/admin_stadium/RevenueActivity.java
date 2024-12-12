@@ -1,8 +1,11 @@
 package com.example.admin_stadium;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -91,5 +94,13 @@ public class RevenueActivity extends AppCompatActivity {
         yAxis.setTextSize(13f);
         xAxis.setDrawGridLines(false);
         xAxis.setTypeface(Typeface.DEFAULT_BOLD);// Tắt lưới
+
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(RevenueActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -24,16 +24,6 @@ public class StartTime extends DialogFragment {
             dismiss();
         });
 
-        Button btnContinue = view.findViewById(R.id.btn_continue);
-        btnContinue.setOnClickListener(v -> {
-            // Hiển thị popup EndTime
-            EndTime endTimeDialog = new EndTime();
-            endTimeDialog.show(getParentFragmentManager(), "endTime");
-
-            // Đóng popup StartTime hiện tại
-            dismiss();
-        });
-
         // Tạo và trả về Dialog
         return new android.app.AlertDialog.Builder(getActivity())
                 .setView(view)

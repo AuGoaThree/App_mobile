@@ -24,13 +24,11 @@ public class AccountActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button btnHome = findViewById(R.id.btn_home);
-        Button btnAcc = findViewById(R.id.btn_account);
 
-      btnHome.setOnClickListener(new View.OnClickListener() {
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AccountActivity.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +36,7 @@ public class AccountActivity extends AppCompatActivity {
         btnAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AccountActivity.this, AccountActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
