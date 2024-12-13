@@ -1,9 +1,9 @@
 package com.example.admin_stadium;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class TimeActivity extends AppCompatActivity {
+
+    private LinearLayout listSchedule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,42 +33,56 @@ public class TimeActivity extends AppCompatActivity {
             return insets;
         });
 
+        listSchedule = findViewById(R.id.list_schedule);
+
         ImageButton btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        btnBack.setOnClickListener(v -> finish());
 
         ImageButton btnAdd = findViewById(R.id.btn_add);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(v -> showPopupStart());
+
+        // Initialize Firebase
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://user-stadium-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        DatabaseReference myRef = database.getReference("timeframe");
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                showPopupStart();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Clear existing views
+                listSchedule.removeAllViews();
+
+                // Iterate through all children
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String startTime = snapshot.child("startTime").getValue(String.class);
+                    String endTime = snapshot.child("endTime").getValue(String.class);
+                    addTimeCard(startTime, endTime);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
             }
         });
-
-        CardView cardView = findViewById(R.id.time_1);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopupChangeStart();
-            }
-        });
-
     }
-
 
     private void showPopupStart() {
         // Hiển thị DialogFragment
-        StartTime dialogFragment = new StartTime();
-        dialogFragment.show(getSupportFragmentManager(), "startTime");
+        CreateTimeFrame dialogFragment = new CreateTimeFrame();
+        dialogFragment.show(getSupportFragmentManager(), "createTimeFrame");
     }
 
-    private void showPopupChangeStart() {
-        // Hiển thị DialogFragment
-        ChangeStartTime dialogFragment = new ChangeStartTime();
-        dialogFragment.show(getSupportFragmentManager(), "changeStartTime");
+    private void addTimeCard(String startTime, String endTime) {
+        CardView cardView = (CardView) getLayoutInflater().inflate(R.layout.time_card, listSchedule, false);
+        TextView textView = cardView.findViewById(R.id.time_text);
+        textView.setText(startTime + " - " + endTime);
+
+        cardView.setOnClickListener(v -> {
+            ChangeTime changeTime = ChangeTime.newInstance(startTime, endTime);
+            changeTime.show(getSupportFragmentManager(), "changeTime");
+        });
+
+        listSchedule.addView(cardView);
     }
 }
