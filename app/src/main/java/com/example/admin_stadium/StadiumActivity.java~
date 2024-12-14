@@ -92,7 +92,6 @@ public class StadiumActivity extends AppCompatActivity {
             );
             dialogFragment.show(getSupportFragmentManager(), "stadiumDetail");
         });
-
     }
 
 

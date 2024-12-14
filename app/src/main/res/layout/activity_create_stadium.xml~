@@ -31,35 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_textfield"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginBottom="15dp">
-
-            <ImageButton
-                android:id="@+id/btn_takephoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/outline_photo_camera_24"
-                android:background="@android:color/transparent"/>
-
-            <ImageButton
-                android:id="@+id/btn_choosephoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_library_photo" />
-
-        </LinearLayout>
+            android:src="@drawable/camp_nou"
+            android:layout_marginBottom="25dp"/>
 
         <EditText
+            android:id="@+id/et_stadium_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên sân"
@@ -71,71 +47,54 @@
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
-        <!-- Ngày bắt đầu -->
         <EditText
+            android:id="@+id/et_stadium_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:hint="Loại sân"
             android:inputType="text"
             android:textSize="18sp"
-            android:hint="Loại sân"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
+            android:fontFamily="@font/baloo"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
-        <!-- Ngày kết thúc -->
         <EditText
+            android:id="@+id/et_stadium_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Vị trí"
             android:inputType="text"
             android:textSize="18sp"
-            android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
+            android:fontFamily="@font/baloo"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp" />
 
-        <!-- Khung giờ -->
         <EditText
+            android:id="@+id/et_stadium_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phí đặt sân"
             android:textSize="18sp"
             android:inputType="number"
-            android:fontFamily="@font/baloo"
             android:background="@drawable/bg_textfield"
             android:padding="10dp"
+            android:fontFamily="@font/baloo"
             android:textColor="@android:color/black" />
 
     </LinearLayout>
 
-    <!-- Hình ảnh sân -->
-
-    <!-- Button hành động -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="15dp"
-        android:weightSum="3">
+        android:weightSum="2">
 
-        <!-- Nút Xóa -->
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Xóa"
-            android:textSize="16sp"
-            android:backgroundTint="#EB383B"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/baloo"
-            android:layout_marginEnd="4dp" />
-
-        <!-- Nút Hủy -->
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
@@ -149,7 +108,6 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp" />
 
-        <!-- Nút Lưu -->
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
@@ -162,6 +120,5 @@
             android:textColor="@android:color/white"
             android:layout_marginStart="4dp" />
     </LinearLayout>
-
 
 </LinearLayout>

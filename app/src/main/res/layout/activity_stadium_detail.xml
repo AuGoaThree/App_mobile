@@ -16,10 +16,9 @@
         android:padding="15dp">
 
         <TextView
-            android:id="@+id/tv_stadium_name"
+            android:id="@+id/title_stadium_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Camp Nou"
             android:textStyle="bold"
             android:fontFamily="@font/baloo"
             android:textSize="25sp"
@@ -32,80 +31,67 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/camp_nou" />
+            android:src="@drawable/camp_nou"
+            android:layout_marginBottom="25dp"/>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginBottom="15dp">
+            android:layout_height="wrap_content">
 
-            <ImageButton
-                android:id="@+id/btn_takephoto"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/outline_photo_camera_24"
-                android:background="@android:color/transparent"/>
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/btn_choosephoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_library_photo" />
+                <!-- Thông tin người đặt -->
+                <EditText
+                    android:id="@+id/stadium_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@drawable/bg_textfield"
+                    android:padding="10dp"
+                    android:fontFamily="@font/baloo"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="10dp" />
 
-        </LinearLayout>
+                <!-- Ngày bắt đầu -->
+                <EditText
+                    android:id="@+id/stadium_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="18sp"
+                    android:background="@drawable/bg_textfield"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="10dp" />
 
-        <!-- Thông tin người đặt -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Camp Nou"
-            android:textSize="18sp"
-            android:background="@drawable/bg_textfield"
-            android:padding="10dp"
-            android:fontFamily="@font/baloo"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="10dp" />
+                <!-- Ngày kết thúc -->
+                <EditText
+                    android:id="@+id/stadium_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/baloo"
+                    android:background="@drawable/bg_textfield"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="10dp" />
 
-        <!-- Ngày bắt đầu -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:textSize="18sp"
-            android:text="11 vs 11"
-            android:background="@drawable/bg_textfield"
-            android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="10dp" />
+                <!-- Giá -->
+                <EditText
+                    android:id="@+id/stadium_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/baloo"
+                    android:background="@drawable/bg_textfield"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black" />
 
-        <!-- Ngày kết thúc -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Barcelona"
-            android:textSize="18sp"
-            android:fontFamily="@font/baloo"
-            android:background="@drawable/bg_textfield"
-            android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="10dp" />
-
-        <!-- Khung giờ -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="180.000"
-            android:textSize="18sp"
-            android:fontFamily="@font/baloo"
-            android:background="@drawable/bg_textfield"
-            android:padding="10dp"
-            android:textColor="@android:color/black" />
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
